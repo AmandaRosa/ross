@@ -2426,6 +2426,9 @@ class Rotor(object):
         nodes_o_d = Q_(self.nodes_o_d, "m").to(length_units).m
         center_line_pos = Q_(self.center_line_pos, "m").to(length_units).m
 
+        print(self.center_line_pos)
+        print('aqui teste2')
+
         fig = go.Figure()
 
         # plot shaft centerline
@@ -4112,6 +4115,8 @@ class CoAxialRotor(Rotor):
         self.nodes = list(range(len(self.nodes_pos)))
         self.L = nodes_pos[-1]
         self.center_line_pos = [0] * len(self.nodes)
+        print(self.center_line_pos)
+        print('aqui teste3')
 
         # rotor mass can also be calculated with self.M()[::4, ::4].sum()
         self.m_disks = np.sum([disk.m for disk in self.disk_elements])
