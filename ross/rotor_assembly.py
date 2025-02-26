@@ -333,6 +333,9 @@ class Rotor(object):
 
         self.center_line_pos = [0] * len(self.nodes)
 
+        print(self.center_line_pos)
+        print('aqui teste')
+
         if isMultiRotor:
             self._fix_nodes()
 
@@ -2421,9 +2424,7 @@ class Rotor(object):
 
         nodes_pos = Q_(self.nodes_pos, "m").to(length_units).m
         nodes_o_d = Q_(self.nodes_o_d, "m").to(length_units).m
-
-        if self.center_line_pos:
-            center_line_pos = Q_(self.center_line_pos, "m").to(length_units).m
+        center_line_pos = Q_(self.center_line_pos, "m").to(length_units).m
 
         fig = go.Figure()
 
@@ -4107,8 +4108,6 @@ class CoAxialRotor(Rotor):
 
         shaft_elements_length = list(df_shaft.groupby("n_l")["L"].min())
         self.shaft_elements_length = shaft_elements_length
-
-        print(self.nodes_pos)
 
         self.nodes = list(range(len(self.nodes_pos)))
         self.L = nodes_pos[-1]
