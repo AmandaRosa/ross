@@ -332,7 +332,6 @@ class Rotor(object):
         self.nodes.append(df_shaft["n_r"].iloc[-1])
 
         self.center_line_pos = [0] * len(self.nodes)
-        print(self.center_line_pos)
 
         if isMultiRotor:
             self._fix_nodes()
@@ -2423,10 +2422,7 @@ class Rotor(object):
         nodes_pos = Q_(self.nodes_pos, "m").to(length_units).m
         nodes_o_d = Q_(self.nodes_o_d, "m").to(length_units).m
 
-        print('antes do if')
-
         if self.center_line_pos:
-            print('teste')
             center_line_pos = Q_(self.center_line_pos, "m").to(length_units).m
 
         fig = go.Figure()
@@ -4114,6 +4110,7 @@ class CoAxialRotor(Rotor):
 
         self.nodes = list(range(len(self.nodes_pos)))
         self.L = nodes_pos[-1]
+        print(self.nodes)
         self.center_line_pos = [0] * len(self.nodes)
 
         # rotor mass can also be calculated with self.M()[::4, ::4].sum()
