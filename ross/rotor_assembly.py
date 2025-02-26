@@ -4108,9 +4108,10 @@ class CoAxialRotor(Rotor):
         shaft_elements_length = list(df_shaft.groupby("n_l")["L"].min())
         self.shaft_elements_length = shaft_elements_length
 
+        print(self.nodes_pos)
+
         self.nodes = list(range(len(self.nodes_pos)))
         self.L = nodes_pos[-1]
-        print(self.nodes)
         self.center_line_pos = [0] * len(self.nodes)
 
         # rotor mass can also be calculated with self.M()[::4, ::4].sum()
