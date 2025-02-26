@@ -332,6 +332,7 @@ class Rotor(object):
         self.nodes.append(df_shaft["n_r"].iloc[-1])
 
         self.center_line_pos = [0] * len(self.nodes)
+        print(self.center_line_pos)
 
         if isMultiRotor:
             self._fix_nodes()
@@ -2421,6 +2422,9 @@ class Rotor(object):
 
         nodes_pos = Q_(self.nodes_pos, "m").to(length_units).m
         nodes_o_d = Q_(self.nodes_o_d, "m").to(length_units).m
+
+        print('antes do if')
+
         if self.center_line_pos:
             print('teste')
             center_line_pos = Q_(self.center_line_pos, "m").to(length_units).m
