@@ -2421,7 +2421,8 @@ class Rotor(object):
 
         nodes_pos = Q_(self.nodes_pos, "m").to(length_units).m
         nodes_o_d = Q_(self.nodes_o_d, "m").to(length_units).m
-        center_line_pos = Q_(self.center_line_pos, "m").to(length_units).m
+        if self.center_line_pos:
+            center_line_pos = Q_(self.center_line_pos, "m").to(length_units).m
 
         fig = go.Figure()
 
