@@ -1546,11 +1546,8 @@ class SealElement(BearingElement):
         )
 
         if self.seal_leakage is not None:
-            if hasattr(self.seal_leakage, "__iter__"):
-                hovertemplate += (
-                    f"Seal Leakage: {self.seal_leakage[0]:.3e} ... "
-                    f"{self.seal_leakage[-1]:.3e}<br>"
-                )
+            if isinstance(self.seal_leakage, (list, tuple)):
+                hovertemplate += f"Seal Leakage: {self.seal_leakage[0]:.3e}<br>"
             else:
                 hovertemplate += f"Seal Leakage: {self.seal_leakage:.3e}<br>"
 
